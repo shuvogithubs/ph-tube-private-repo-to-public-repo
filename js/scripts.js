@@ -1,47 +1,53 @@
-const handleCatagory = async () => {
+const handleCatagories = async () => {
     const respons = await fetch("https://openapi.programming-hero.com/api/videos/categories");
     const data = await respons.json();
 
     const tabContainers = document.getElementById('tabs-containers');
 
-    const trimData = data.data;
-    trimData.forEach((catagory) => {
+    const trmData = data.data;
+    trmData.forEach((catagorys) => {
         const div = document.createElement("div");
         div.innerHTML = `
-        <a onclick="handleLoad(${catagory.category_id})" class="tab" onmouseover="this.style.color='red'" onmouseout="this.style.color='gray'">${catagory.category}</a>
+        <a onclick="handleLoad(${catagorys.category_id})" class="tab" onmouseover="this.style.color='red'" onmouseout="this.style.color='gray'">${catagorys.category}</a>
         `
         tabContainers.appendChild(div);
 
 
     });
 
-    
+
 }
 
 
-const handleLoad = async (catagoryId) => {
-    // console.log(catagoryId);
+const handleLoad = async (catagorysId) => {
+    // console.log(catagorysId);
 
-    const respons = await fetch(`https://openapi.programming-hero.com/api/videos/category/${catagoryId}`);
+    const respons = await fetch(`https://openapi.programming-hero.com/api/videos/category/${catagorysId}`);
     const data = await respons.json();
 
     console.log(data.data);
 
 
 
-    const cardContainer = document.getElementById('cards-containers');
-    // clear the old cards
-    cardContainer.innerHTML = "";
+    const cardContainers = document.getElementById('cards-containers');
+
+    cardContainers.innerHTML = "";
 
 
-    // ---------- no found------------
+
+
+
+
+
     if (data.data.length === 0) {
         console.log('no found');
 
-        cardContainer.classList.remove("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-4", "gap-3");
+        cardContainers.classList.remove("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-4", "gap-3");
 
 
-        cardContainer.innerHTML = `
+
+
+        cardContainers.innerHTML = `
         <div class="flex flex-col text-center items-center text-3xl font-bold mt-40">
         <div>
             <img src="./Icon.png" alt="">
@@ -53,20 +59,22 @@ const handleLoad = async (catagoryId) => {
         
         `
 
-    }
-    else {
-        cardContainer.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-4", "gap-3");
+
 
     }
-    // -----------------------------
+    else {
+        cardContainers.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-4", "gap-3");
+
+    }
+
 
 
 
     data.data.forEach((cards) => {
         const div = document.createElement("div");
 
-        // ------cauculate time--------------
-        // console.log(cards.others.posted_date);
+
+
         let second = cards.others.posted_date;
 
 
@@ -85,28 +93,29 @@ const handleLoad = async (catagoryId) => {
         console.log(second);
 
 
-        // -----------------------------------
 
-        // console.log(cards.authors[0].profile_picture);
         div.innerHTML = `
         
         <div class="card w-80 lg:w-72 mx-auto h-80 bg-base-100 ">
         <!-- card main img -->
         <figure class="h-80 rounded-md"><img src=${cards?.thumbnail} /></figure>
         
-        <!-- -----time part ----- -->
+        
+
         <div class="flex justify-end absolute left-32 top-32">
             <div>
                 ${cards.others.posted_date > 0 ? `<p class="text-center text-white p-1 w-36 bg-[#171717] rounded-md text-xs">${hours}hrs ${minutes}min ago</p>` : ``} 
             </div>
         </div>
-        <!-- -------------------- -->
+
         
         
         <div class="card-body px-1 ">
             <div class="flex">
                 <div class="mr-3">
-                    <!-- card profile img -->
+
+                    
+
                       <figure><img class="rounded-full w-10 h-10" src=${cards?.authors[0]?.profile_picture} /></figure>
                 </div>
 
@@ -137,11 +146,11 @@ const handleLoad = async (catagoryId) => {
         
         `
 
-        cardContainer.appendChild(div);
+        cardContainers.appendChild(div);
 
     })
 }
 
-handleCatagory();
+handleCatagories();
 
 handleLoad("1000");

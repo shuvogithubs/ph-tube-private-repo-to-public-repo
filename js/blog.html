@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/059e6f008a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="container mx-auto lg:max-w-7xl mt-1 lg:mt-20" style="font-family: 'Inter', sans-serif;">
+
+    <section>
+        <div class="collapse collapse-plus bg-base-300 mb-2">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title text-3xl font-semibold">
+                Discuss the scope of var, let, and const
+            </div>
+            <div class="collapse-content">
+
+                <div>
+                    <p class="text-lg font-bold"> var .</p>
+                    <ul>
+                        <li><span class="font-semibold">Function Scope:</span>Variables that are declared inside a
+                            function are called local variables and in the function scope. Local variables are
+                            accessible anywhere inside the function.</li>
+                        <li><span class="font-semibold">Block scope:</span> Variable that is declared inside a specific block & can't be accessed outside of that block.</li>
+                    </ul>
+                </div>
+                <hr class="h-1 bg-slate-500 mt-2">
+
+                <div>
+                    <p class="text-lg font-bold mt-2"> let .</p>
+                    <ul>
+                        <li><span class="font-semibold">Block Scope:</span> Let  is used to declare a variable that is block scoped in JavaScript. In JavaScript, the var keyword is typically used to declare a variable that is treated like any other variable, whereas variables declared using the let in JavaScript are block scoped.
+                        </li>
+                        <li><span class="font-semibold">Hoisting:</span> Let variables are raised to the top of their
+                            contained block like var variables are, but they are not initialized. A ReferenceError will
+                            be
+                            raised if a let variable is attempted to be accessed before it has been declared.</li>
+                    </ul>
+                </div>
+                <hr class="h-1 bg-slate-500 mt-2">
+
+                <div>
+                    <p class="text-lg font-bold mt-2"> const .</p>
+                    <ul>
+                        <li><span class="font-semibold">Block Scope:</span>the const keyword in JavaScript to declare variables whose value can be initialized only at the time of declaration. Like let, variables declared with const are
+                            also
+                            block-scoped.</li>
+                        <li><span class="font-semibold">Immutability:</span> After being given a value, const variables
+                            cannot be changed. If the value they hold is an object or an array, it may nevertheless be
+                            modifiable. This means you can change a variable's assignment but not its properties, or the
+                            elements of an array declared with const.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-300 mb-2">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">
+                Tell us the use cases of null and undefined
+            </div>
+            <div class="collapse-content">
+
+                <div>
+                    <p class="text-lg font-bold"> undefined .</p>
+                    <ul>
+                        <li><span class="font-semibold">Implicit Default Value:</span> Undefined is automatically
+                            assigned
+                            to a variable when it is declared but not given a value.</li>
+                        <li><span class="font-semibold">Function Parameters:</span> The value of a parameter inside a
+                            function will be undefined if it is expected but not supplied when the function is called.
+                            Using
+                            this, you can make some function parameters optional.</li>
+                        <li><span class="font-semibold">Array Elements:</span> If you access an array element at an
+                            index
+                            that is out of bounds or if an element has not been assigned a value, you will get
+                            undefined.
+                        </li>
+                        <li><span class="font-semibold">Object Properties:</span> Undefined is returned if you attempt
+                            to
+                            access an object attribute that doesn't exist.</li>
+                    </ul>
+                </div>
+                <hr class="h-1 bg-slate-500">
+
+
+                <div>
+                    <p class="text-lg font-bold">null .</p>
+                    <ul>
+                        <li><span class="font-semibold">Explicit Absence of Value:</span> Null is frequently used to
+                            signify
+                            clearly that no object value exists or that a variable or object property should be empty.
+                            It's
+                            a way to show that a variable has been purposefully set to zero.</li>
+                        <li><span class="font-semibold">Cleaning Up References:</span> In some circumstances, setting an
+                            object or variable to null will allow you to free up memory or other resources. Particularly
+                            in
+                            applications with manual memory management, such as some JavaScript frameworks or libraries,
+                            this can be crucial.</li>
+                        <li><span class="font-semibold">Comparison:</span> When determining whether something has been
+                            purposefully set to nothing, you can use null as a deliberate value to compare to or check
+                            against.</li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-300 mb-2">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">
+                What do you mean by REST API?
+            </div>
+            <div class="collapse-content">
+
+                <div>
+                    <p class="text-lg font-bold"> REST API .</p>
+                    <p>Representational State Transfer Application Programming Interface, also known as REST API, is a
+                        set of architectural guidelines and restrictions for creating networked applications. It is a
+                        method for developing web services that enables communication between various software programs
+                        via the internet or within an intranet.</p>
+                    <br>
+                    <p class="font-semibold">Key principles and characteristics of RESTful APIs include:</p>
+                    <ol class="list-decimal ml-5">
+                        <li>Stateless,</li>
+                        <li>Client-Server Architecture,</li>
+                        <li>Resource-Based,</li>
+                        <li>Uniform Interface,</li>
+                        <li>Statelessness,</li>
+                        <li>Representation,</li>
+                        <li>Stateless Communication,</li>
+                        <li>HTTP Methods,</li>
+                        <li>Status Codes,</li>
+                        <li>HATEOAS (Hypermedia as the Engine of Application State).</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
