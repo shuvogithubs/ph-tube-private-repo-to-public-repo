@@ -90,7 +90,56 @@ const handleLoad = async (catagoryId) => {
         // console.log(cards.authors[0].profile_picture);
         div.innerHTML = `
         
-       
+        <div class="card w-80 lg:w-72 mx-auto h-80 bg-base-100 ">
+        <!-- card main img -->
+        <figure class="h-80 rounded-md"><img src=${cards?.thumbnail} /></figure>
+        
+        <!-- -----time part ----- -->
+        <div class="flex justify-end absolute left-32 top-32">
+            <div>
+                ${cards.others.posted_date > 0 ? `<p class="text-center text-white p-1 w-36 bg-[#171717] rounded-md text-xs">${hours}hrs ${minutes}min ago</p>` : ``} 
+            </div>
+        </div>
+        <!-- -------------------- -->
+        
+        
+        <div class="card-body px-1 ">
+            <div class="flex">
+                <div class="mr-3">
+                    <!-- card profile img -->
+                      <figure><img class="rounded-full w-10 h-10" src=${cards?.authors[0]?.profile_picture} /></figure>
+                </div>
+
+                <div>
+                    <!-- title -->
+                    <h2 class="card-title">${cards?.title}</h2>
+
+                    <div class="flex mt-2">
+                        <div class="mb-1">
+                            <!-- profile name -->
+                            <p>${cards?.authors[0]?.profile_name}</p>
+                        </div>
+
+                        <div  class="pl-1 text-blue-600">
+                         ${cards?.authors[0]?.verified ? '<i class="fa-solid fa-circle-check"></i>' : ""}
+                       
+                        </div>
+                    </div>
+
+                    <!-- views -->
+                    <p>${cards?.others?.views}</p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+        
+        `
+
+        cardContainer.appendChild(div);
+
+    })
 }
 
 handleCatagory();
